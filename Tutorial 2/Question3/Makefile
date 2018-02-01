@@ -1,0 +1,1 @@
+gcc -Wall -Wextra -std=c99 question3.c -o question3

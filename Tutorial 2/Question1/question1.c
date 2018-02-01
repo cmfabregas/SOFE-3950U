@@ -13,7 +13,7 @@ int main(){
     int array[10]= {1,2,3,4,5,6,7,8,9,10};
     int i;
 
-    //for loop prints out the array
+    //for loop prints out the arrayer
     for(i=0; i < 10; i++)
     {
         printf( "%d ", array[i]); 
