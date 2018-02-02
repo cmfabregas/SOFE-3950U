@@ -34,7 +34,11 @@ int main(int argc, char *argv[])
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
         // Perform string tokenization to get the command and argument
-
+            char *dir;
+            memcpy(command, buffer, BUFFER_LEN);
+            strtok_r(command, "\n", &dir);
+            strcpy(buffer,dir);
+            strtok(buffer, "\n");
         // Check the command and execute the operations for each command
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
@@ -42,8 +46,44 @@ int main(int argc, char *argv[])
             // your code here
         }
 
-        // other commands here...
-        
+        //clear command
+        else if(strcmp(command, "clr") == 0)
+        {
+    
+        }
+        //dir command - display current directory
+        else if(strcmp(command, "dir") == 0)
+        {
+    
+        }
+        //environ command - list all environmental strings
+        else if(strcmp(command, "environ") == 0)
+        {
+    
+        }
+        //echo command - displays comment
+        else if(strcmp(command, "echo") == 0)
+        {
+    
+        }
+        //help command - 
+        else if(strcmp(command, "help") == 0)
+        {
+            int c;
+            FILE *file;
+            file = fopen("README.txt", "r");
+            if (file) {
+                while ((c = getc(file)) != EOF)
+                    putchar(c);
+            
+            fclose(file);
+            }
+        }
+        //
+        else if(strcmp(command, "pause") == 0)
+        {
+    
+        }
         // quit command -- exit the shell
         else if (strcmp(command, "quit") == 0)
         {
