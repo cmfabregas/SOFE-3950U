@@ -26,23 +26,26 @@ int main(int argc, char *argv[])
     // Input buffer and and commands
     char buffer[BUFFER_LEN] = { 0 };
     char command[BUFFER_LEN] = { 0 };
-    char arg[BUFFER_LEN] = { 0 };
-
+    char arg[BUFFER_LEN] = {"/home"};
+    getcwd(arg, BUFFER_LEN);
     // Parse the commands provided using argc and argv
-
+    printf("%s/myshell>",arg);
     // Perform an infinite loop getting command input from users
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
         // Perform string tokenization to get the command and argument
             char *dir;
             memcpy(command, buffer, BUFFER_LEN);
-            strtok_r(command, "\n", &dir);
+            strtok_r(command, "\n", &dir); //removes \n in the command array
             strcpy(buffer,dir);
             strtok(buffer, "\n");
         // Check the command and execute the operations for each command
+
+
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
         {
+            memcpy(arg, change_dir(buffer, arg), BUFFER_LEN);
             // your code here
         }
 
