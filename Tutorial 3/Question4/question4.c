@@ -1,16 +1,10 @@
-<<<<<<< HEAD
-/*Question 4 Tutorial 4
+/*Question 4 Tutorial 3
 **Carlos Fabregas
 **Create 3 pointers for professor, student_ids, grades and allocate dynamic memory to them
 */
 
-=======
->>>>>>> 7c7dcb3521ea7d10784406268209cd7be0e5b252
 #include <stdlib.h>
 #include <stdio.h>
-
-
-<<<<<<< HEAD
 
 int main(void){
 
@@ -33,18 +27,4 @@ int main(void){
     free(student_ids);
     free(grades);
     free(professor);
-
-=======
-int main(void){
-
-    char *professor;
-    int *student_ids;
-    int *grades;
-
-    professor  = (char*)calloc(256, sizeof(char));
-
-
-
-    return 0;
->>>>>>> 7c7dcb3521ea7d10784406268209cd7be0e5b252
 }
