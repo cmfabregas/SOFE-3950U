@@ -11,10 +11,10 @@
 
 // Define your utility functions here, you will likely need to add more...
 
-// int alloc_mem(resources res, int size)
-// {
-//      ...
-// }
+int alloc_mem(resources *res, int size)
+{
+    res = (resources*)calloc(size,sizeof(resources));
+}
 
 // free_mem(resources res, int index, int size)
 // {

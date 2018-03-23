@@ -13,19 +13,19 @@
 
 // Resources structure containing integers for each resource constraint and an
 // array of 1024 for the memory
-// typedef struct {
-//  ...
-//  ...
-// } resources;
+typedef struct resources{
+    
+
+} resources;
 
 
 // Processes structure containing all of the process details parsed from the 
 // input file, should also include the memory address (an index) which indicates
 // where in the resources memory array its memory was allocated
-// typedef struct {
-//  ...
-//  ...
-// } process;
+typedef struct process{
+    resources res;
+    int arrival, priority, processor_t, memory, printers, scanners, modems, CD;
+} proc;
 
 
 // Include your relevant functions declarations here they must start with the 
@@ -34,7 +34,8 @@
 // Function to allocate a contiguous chunk of memory in your resources structure
 // memory array, always make sure you leave the last 64 values (64 MB) free, should
 // return the index where the memory was allocated at
-// extern int alloc_mem(resources res, int size);
+
+extern int alloc_mem(resources res, int size);
 
 // Function to free the allocated contiguous chunk of memory in your resources
 // structure memory array, should take the resource struct, start index, and 
