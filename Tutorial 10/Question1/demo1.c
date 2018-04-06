@@ -16,13 +16,23 @@ int main (int argc, char* argv[])
     int proc_id;            // Process rank
     int n_proc;             // Number of processes
 
-    // Initialize MPI
+    // Initializes the MPI environment
+    /*all of MPI's global and internal variables are constructed, 
+    **a communicator is formed around all the processes that were spawned
+    **unique ranks are assigned to each process
+    */
     MPI_Init(&argc, &argv);
     
     // Get the current process id
+    /*returns the rank of a process in a communicator
+    **each process inside a communicator is assigned an incremental rank starting from zero
+    **ranks of the process are primarily used for identification purposes when sending and receiving messages
+    */
     MPI_Comm_rank(MPI_COMM_WORLD, &proc_id);
     
     // Get the current number of processes
+    /* Returns the size of a communicator
+    */
     MPI_Comm_size(MPI_COMM_WORLD, &n_proc);
 
     // Display a "Hello world" message from each child/parent
@@ -36,5 +46,6 @@ int main (int argc, char* argv[])
     }
 
     // Required to terminate all MPI processes
+    //cleans up the MPI environment 
     MPI_Finalize();
 }

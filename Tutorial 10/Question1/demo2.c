@@ -38,6 +38,8 @@ void master(int n_proc)
     {
         // Send CHUNK_SIZE of data to each process initially
         // Sends data, of type double to process 'i'
+        //send the exact count of element
+        //arguments: buffer, count , type of element that resides inside the buffer, rank of sending argument, rank of receiving argument, specifies the communicator
         MPI_Send(&data[n_sent*CHUNK_SIZE], CHUNK_SIZE, MPI_DOUBLE, i, 
                  n_sent, MPI_COMM_WORLD);
         n_sent++;
@@ -47,8 +49,10 @@ void master(int n_proc)
     for (int i = 0; i < total_chunks; ++i)
     {
         // Receive the computed chunk back from the slave
+        //receive at most the count of elements
+        //arguments : buffer, count , type of element that resides inside the buffer, rank of sending argument, rank of receiving argument, specifies the communicator, provides info about received message
         MPI_Recv(chunk, CHUNK_SIZE, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG,
-                 MPI_COMM_WORLD, &status);
+                 MPI_COMM_WORLD, &status); 
         // Get the process that sent the data and send it the next chunk
         proc = status.MPI_SOURCE;
         n_recv = status.MPI_TAG;
