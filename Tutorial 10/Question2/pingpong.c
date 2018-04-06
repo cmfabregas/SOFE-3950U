@@ -32,10 +32,10 @@ int main(int argc,char* argv[]){
 
     int n_ping_pong = 0;
     int partner_rank = (proc_id +1) % 2;
-    double *data = (double*)malloc(10000000*sizeof(double));
+    double *data = (double*)malloc(10000000*sizeof(double)); //allocation of array
 
-    start = MPI_Wtime();
-    
+    start = MPI_Wtime(); //start time 
+    //ping pong 
     while(n_ping_pong < PING_PONG_LIMIT){
         if(proc_id == n_ping_pong % 2){
 
@@ -45,9 +45,9 @@ int main(int argc,char* argv[]){
             MPI_Recv(&data,1,MPI_DOUBLE,partner_rank,0,MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         }
     }
-    end = MPI_Wtime();
+    end = MPI_Wtime(); //end time
     MPI_Finalize();
 
-    printf("Runtime = %f\n", end-start);
+    printf("Runtime = %f\n", end-start); //runtime
 }
 
